@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "b704f48e-e7b4-4d2e-9011-ee3b2ec5488a",
+		"name": "userCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15454968"
+	},
+	"item": [
+		{
+			"name": "userSignup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test3@example.com\",\n  \"password\": \"Test@3\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test2@example.com\",\n  \"password\": \"Test@2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYTYyYjQ3ODQwZjE1MmI3MzcwYTYiLCJpYXQiOjE3MzkzNzkzMTMsImV4cCI6MTczOTM4MjkxM30.EvQ9K7dQOOISDL6ZaHGjoxh6YmJ07u0hmLg_g8_TZR8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYTYyYjQ3ODQwZjE1MmI3MzcwYTYiLCJpYXQiOjE3MzkzNjgwMDIsImV4cCI6MTczOTM3MTYwMn0.ph7LUBPobzvQUISciFvw9LyqXVHNpMYWWsMNyvzbMN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Complete 14 Project\",\n  \"description\": \"Finish the project 14 eore the deadline\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mark/unmark",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYTYyYjQ3ODQwZjE1MmI3MzcwYTYiLCJpYXQiOjE3MzkzNzg5MjYsImV4cCI6MTczOTM4MjUyNn0.PNSeaun27Rcf_0ffIVK7_15DUKkL7o5sLt2SmczC8u0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tasks/67acd1206140fa6f3db20735/toggle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tasks",
+						"67acd1206140fa6f3db20735",
+						"toggle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listWIthPagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYTYyYjQ3ODQwZjE1MmI3MzcwYTYiLCJpYXQiOjE3MzkzNzkzMTMsImV4cCI6MTczOTM4MjkxM30.EvQ9K7dQOOISDL6ZaHGjoxh6YmJ07u0hmLg_g8_TZR8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tasks?limit=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
